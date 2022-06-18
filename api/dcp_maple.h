@@ -360,9 +360,11 @@ uint32_t dec_fifo_init_conf(uint32_t count, uint32_t size, void * A, void * B, u
   if (!res_producer_conf) config_tiles--;
 
   uint64_t cr_conf_A = op*BYTE | 1 << FIFO;
-  if (A!=0) for (int j=0; j<config_tiles; j++){
-    *(volatile uint64_t*)(cr_conf_A | base[j]) = (uint64_t)A;
-    if (B!=0) *(volatile uint64_t*)(base_addr32 | base[j]) = (uint64_t)B;
+  if (A!=0 || B!=0){
+    for (int j=0; j<config_tiles; j++){
+      *(volatile uint64_t*)(cr_conf_A | base[j]) = (uint64_t)A;
+      if (B!=0) *(volatile uint64_t*)(base_addr32 | base[j]) = (uint64_t)B;
+    }
   }
 
   initialized = 1;

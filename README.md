@@ -1,4 +1,5 @@
 # MAPLE (Memory Access Parallel Load Engine)
+<img align="right" width="375" height="400" src="https://user-images.githubusercontent.com/55038083/175697160-4008adf9-8ddc-4374-9eb6-13f0d375c581.png">
 
 This is the repository for the RTL and API of the [research paper "Tiny but Mighty: Designing and Realizing Scalable Latency Tolerance for Manycore SoCs"](https://dl.acm.org/doi/abs/10.1145/3470496.3527400
 ), to appear at the 49th International Symposium on Computer Architecture 

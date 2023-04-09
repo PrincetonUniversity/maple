@@ -272,7 +272,8 @@ module io_mmu #(
         if (!rst_ni) begin
             tlb_conf_r <= 1'b1;
         end else begin
-            tlb_conf_r <= tlb_conf_ptbase || tlb_conf_r && !tlb_disable;
+            // Reset to 1'b1 during flush
+            tlb_conf_r <= flush_i || tlb_conf_ptbase || tlb_conf_r && !tlb_disable;
         end
     end
     always @(posedge clk_i or negedge rst_ni) begin

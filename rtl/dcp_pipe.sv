@@ -569,9 +569,9 @@ for (j = 0; j < `FC_FIFO_SIZE; j=j+1) begin : conf_fifo_gen
             c0_aconfigured_r[j] <= c0_aconfigure[j] || c0_aconfigured_r[j] && !c0_ainvalidate[j];
             c0_econfigured_r[j] <= c0_econfigure[j] || c0_econfigured_r[j] && !c0_einvalidate[j];
             c0_B_val_r[j]       <= c0_set_B[j] || c0_B_val_r[j] && !c0_invalidate;
-            if (c0_set_B[j]) begin
-                c0_B_len_r[j]   <= s0_op == `DCP_SET_B64_FIFO;
-                c0_B_r[j]       <= c0_data[`DCP_VADDR-1:0];
+            if (c0_set_B[j] || c0_invalidate) begin
+                c0_B_len_r[j]   <= c0_invalidate ? '0 : (s0_op == `DCP_SET_B64_FIFO);
+                c0_B_r[j]       <= c0_invalidate ? '0 : c0_data[`DCP_VADDR-1:0];
             end
         end
     end

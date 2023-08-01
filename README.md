@@ -4,6 +4,14 @@
 This is the repository for the RTL and API of the [research paper "Tiny but Mighty: Designing and Realizing Scalable Latency Tolerance for Manycore SoCs"](https://dl.acm.org/doi/abs/10.1145/3470496.3527400
 ), to appear at the 49th International Symposium on Computer Architecture 
 
+The correct citation for this work is:
+
+        @inproceedings{maple, author = {Orenes-Vera, Marcelo and Manocha, Aninda and Balkind, Jonathan and Gao, Fei and Arag\'{o}n, Juan L. and Wentzlaff, David and Martonosi, Margaret}, title = {Tiny but Mighty: Designing and Realizing Scalable Latency Tolerance for Manycore SoCs}, year = {2022}, isbn = {9781450386104}, publisher = {Association for Computing Machinery}, address = {New York, NY, USA}, url = {https://doi.org/10.1145/3470496.3527400}, doi = {10.1145/3470496.3527400}, booktitle = {Proceedings of the 49th Annual International Symposium on Computer Architecture}, pages = {817–830}, numpages = {14}, series = {ISCA '22} }
+
+## Overview
+
+In this repository you can find:
+
 An **outline of the RTL files** can be found at *rtl/Flist.dcp*
 DCP stands for 'decoupling from processor', as it is an RTL block that can be interacted with through the MAPLE API.
 
@@ -13,31 +21,36 @@ The *tests* folder contains the benchmarks in subfolders and four other programs
 
 ## Installation
 
-    git clone git@github.com:PrincetonUniversity/openpiton.git
-    cd openpiton
-    git checkout openpiton-maple
-    git clone git@github.com:PrincetonUniversity/maple.git
-    source piton/ariane_setup.sh 
-    source piton/ariane_build_tools.sh
+    git clone git@github.com:PrincetonUniversity/openpiton.git;
+    cd openpiton;
+    git checkout openpiton-maple;
+    git clone git@github.com:PrincetonUniversity/maple.git;
+    source piton/ariane_setup.sh;
+    source piton/ariane_build_tools.sh;
 
 ### Building RTL
-We are now going to build a basic prototype of 3 tiles (2 Arianes and 1 MAPLE tile in between)
+We are now going to build a basic prototype of 4 tiles (2 Arianes and 2 MAPLE tile in between)
+Currently the frequency of MAPLE tiles is one every two tiles. This can be configured.
 
-    cd build
-    sims -sys=manycore -ariane -decoupling -vcs_build -x_tiles=3 -y_tiles=1 -config_rtl=MINIMAL_MONITORING
+    cd build;
+    sims -sys=manycore -ariane -decoupling -vcs_build -x_tiles=3 -y_tiles=1 -config_rtl=MINIMAL_MONITORING;
 
 ### Running basic test
-    cd $PITON_ROOT/maple
-    ./run_test.sh
+    cd $PITON_ROOT/maple;
+
+Runs test #0. (Four basic tests are provided within this run_test.sh script)
+
+    ./run_test.sh 0;
 
 ### Troubleshooting
 If the build process fails due to a python problem make sure that your python command is defined and pointing to python2
 
     which python
 
-If it's not defined or pointing to python3, then change the usage of python for python2 in the following files:
-    sed -i 's/python/python2/' piton/design/chip/tile/ariane/bootrom/Makefile
-    sed -i 's/python/python2/' piton/design/chip/tile/ariane/openpiton/bootrom/linux/Makefile
+If it's not defined or pointing to python3, then change the usage of python for python2 in the following files by running the following commands from the openpiton folder (not the build folder)
+    
+    sed -i 's/python/python2/' piton/design/chip/tile/ariane/bootrom/Makefile;
+    sed -i 's/python/python2/' piton/design/chip/tile/ariane/openpiton/bootrom/linux/Makefile;
 
 
 

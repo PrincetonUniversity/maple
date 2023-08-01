@@ -3,7 +3,7 @@
 #define QUEUE_SIZE 128
 #define MAX_QUEUES 256
 // Do some runtime checks, but potentially slows
-#define DEC_DEBUG 1
+//#define DEC_DEBUG 1
 
 #define BYTE         8
 #define TILE_X       28
@@ -604,7 +604,7 @@ void print_old(uint32_t id){
 }
 
 // Print the statistics
-void print_st(uint32_t id){
+uint64_t print_st(uint32_t id){
     uint64_t stat = dec_fifo_stats(id);
     stat = dec_fifo_stats(id);
     uint32_t stat_c = (uint32_t) stat;
@@ -613,8 +613,9 @@ void print_st(uint32_t id){
     stat_c += (uint32_t) stat;
     stat_p += (stat >> 32);
     if (stat_c > stat_p) stat = stat_c; else stat = stat_p;
-    printf("Execution time: %d\n",(int)stat);
-    stat = dec_fifo_stats(id);
+    //printf("Execution time: %d\n",(int)stat);
+    uint64_t ignore = dec_fifo_stats(id);
+    return stat;
 }
 // Close the producer and print the statistics
 void print_stats(){

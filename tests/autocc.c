@@ -79,6 +79,6 @@ int main(int argc, char ** argv) {
     dec_close_producer(timer_qid); dec_close_consumer(timer_qid);
 
     print32("Recovered secret",recovered);
-    printf("T: %d\n",(int)time);
+    printf("Time: %d\n",(int)time);
     return 0;
 }

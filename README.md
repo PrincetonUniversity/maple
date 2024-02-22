@@ -6,7 +6,22 @@ This is the repository for the RTL and API of the [research paper "Tiny but Migh
 
 The correct citation for this work is:
 
-        @inproceedings{maple, author = {Orenes-Vera, Marcelo and Manocha, Aninda and Balkind, Jonathan and Gao, Fei and Arag\'{o}n, Juan L. and Wentzlaff, David and Martonosi, Margaret}, title = {Tiny but Mighty: Designing and Realizing Scalable Latency Tolerance for Manycore SoCs}, year = {2022}, isbn = {9781450386104}, publisher = {Association for Computing Machinery}, address = {New York, NY, USA}, url = {https://doi.org/10.1145/3470496.3527400}, doi = {10.1145/3470496.3527400}, booktitle = {Proceedings of the 49th Annual International Symposium on Computer Architecture}, pages = {817–830}, numpages = {14}, series = {ISCA '22} }
+```
+@inproceedings{maple,
+  author = {Orenes-Vera, Marcelo and Manocha, Aninda and Balkind, Jonathan and Gao, Fei and Arag\'{o}n, Juan L. and Wentzlaff, David and Martonosi, Margaret},
+  title = {Tiny but Mighty: Designing and Realizing Scalable Latency Tolerance for Manycore SoCs},
+  year = {2022},
+  isbn = {9781450386104},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  url = {https://doi.org/10.1145/3470496.3527400},
+  doi = {10.1145/3470496.3527400},
+  booktitle = {Proceedings of the 49th Annual International Symposium on Computer Architecture},
+  pages = {817–830},
+  numpages = {14},
+  series = {ISCA '22}
+}
+```
 
 ## Overview
 
